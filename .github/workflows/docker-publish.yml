@@ -2,13 +2,16 @@ name: docker-publish
 
 on: 
   workflow_dispatch:
+  schedule:
+    # * is a special character in YAML so we have to quote this string
+    - cron:  '0 0 * * *'  # every day at midnight
 
 jobs:
   publish-to-dockerhub:
     strategy:
         fail-fast: true
         matrix:
-          jdk: [8, 11, 17]
+          jdk: [11, 17]
 
     runs-on: ubuntu-latest
     timeout-minutes: 15
