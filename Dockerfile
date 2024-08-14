@@ -18,5 +18,6 @@ RUN rm -f atlassian-plugin-sdk-tgz
 RUN mv atlassian-plugin-sdk-* atlassian-plugin-sdk
 ENV PATH="/opt/atlassian-plugin-sdk/bin:$PATH"
 
+RUN java -version
 RUN atlas-version
 CMD [ "sh" ]
