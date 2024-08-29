@@ -18,6 +18,10 @@ RUN rm -f atlassian-plugin-sdk-tgz
 RUN mv atlassian-plugin-sdk-* atlassian-plugin-sdk
 ENV PATH="/opt/atlassian-plugin-sdk/bin:$PATH"
 
+# Move bundled Atlassian SDK repository to defaul maven location
+RUN mkdir -p ~/.m2
+RUN mv /opt/atlassian-plugin-sdk/repository/ ~/.m2
+
 RUN java -version
 RUN atlas-version
 CMD [ "sh" ]
