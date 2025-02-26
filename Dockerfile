@@ -10,6 +10,9 @@ LABEL maintainer="Jack Nolddor" \
 
 WORKDIR /opt
 
+# Update wget binary
+RUN apk --no-cache add wget
+
 # Install the latest version of Atlassian SDK
 # Refers to https://developer.atlassian.com/server/framework/atlassian-sdk/install-the-atlassian-sdk-on-a-linux-or-mac-system/#-tgz-file
 RUN wget --debug https://marketplace.atlassian.com/download/plugins/atlassian-plugin-sdk-tgz
